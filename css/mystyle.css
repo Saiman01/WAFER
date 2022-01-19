@@ -1,0 +1,237 @@
+/*
+
+WAFER Project by Team Beep Boop
+Project Members: Tyler Parks, Cayden Chancey, Matthew Curtin, Nabin Bhatta, and Saiman Sigdel
+css: mystyle.css
+Created: Ocotber 9, 2020
+
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('/lib/SubtleBCK1.png');
+}
+
+h1 {
+    font-size: 60px;
+    color: white;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+
+.form-container {
+    max-width: 34%;
+}
+
+.info-hover-wrapper {
+    background-color: #A42020;
+    border-radius: 10px;
+    margin: 2%;
+    max-width: 15%;
+    min-width: 30%;
+    min-height: 150px;
+    max-height: 200px;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 1));
+    transition: 0.2s ease-in;
+    overflow: auto;
+}
+
+.info-hover-wrapper:hover {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.05, 1.05);
+}
+
+.info-tab {
+    max-height: 20%;
+    padding: 1.2%;
+}
+
+.info-tab p{
+    margin: 15px;
+}
+
+.info-one{
+    float: left;
+    line-height: 2;
+}
+.info-two{
+    float: right;
+    line-height: 2;
+}
+
+.resCard {
+    margin: 2% 2% 2% -2%;
+    padding: 2%;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: hsl(0, 67%, 38%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07),
+    0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.resCard h2, p {
+    color: hsla(0, 0%, 100%, 0.877);
+}
+
+.resCard h3{
+    color: hsla(0, 0%, 100%, 0.877);
+}
+
+.resCard:hover {
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(1.025, 1.025);
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+/*iframe {
+    width: 66%;
+    float: right;
+    height: 100vh;
+    top: 0;
+} */
+
+#map {
+    width: 66%;
+    height: 900px;
+    float: right;
+    top: 0;
+    border-left: solid 5px #A42020;
+}
+
+/*Newely added code ------  */
+#panel, #but, #back{
+    padding: 5px;
+    text-align: left;
+    background-color: #e5eecc;
+    border-left: thick double #ff0000;
+    border: solid 1px #c3c3c3;
+}
+
+/*items is for the list of restaurant */
+#items{
+  text-align: left;
+  width: 34%;
+  height: 60%;
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+  overflow : scroll;
+}
+
+#name {
+    width: 34%;
+    padding: 20px;
+    display: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+/*Horizontal Sliding*/
+.slidingHorizontal{
+
+	display: inline;
+	text-indent: 8px;
+}
+.slidingHorizontal span{
+    text-align: left;
+    font-size: 19px;
+
+	animation: leftToRight 12.5s linear infinite 0s;
+	color: rgb(235, 225, 235);
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+}
+.slidingHorizontal span:nth-child(2){
+	animation-delay: 2.5s;
+
+}
+.slidingHorizontal span:nth-child(3){
+	animation-delay: 5s;
+}
+.slidingHorizontal span:nth-child(4){
+	animation-delay: 7.5s;
+}
+.slidingHorizontal span:nth-child(5){
+	animation-delay: 10s;
+}
+
+/*leftToRight Animation*/
+@keyframes leftToRight{
+	0% { opacity: 0; }
+	5% { opacity: 0; -webkit-transform: translateX(-50px); }
+	10% { opacity: 1; -webkit-transform: translateX(0px); }
+	25% { opacity: 1; -webkit-transform: translateX(0px); }
+	30% { opacity: 0; -webkit-transform: translateX(50px); }
+	80% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/*horizontal info sliding---end*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:rgb(148, 28, 28);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+#locationForm {
+    width: 33%;
+    /*height: 15px;*/
+    padding: 10px;
+}

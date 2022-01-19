@@ -1,0 +1,126 @@
+<!-- 
+
+WAFER Project by Team Beep Boop 
+Project Members: Tyler Parks, Cayden Chancey, Matthew Curtin, Nabin Bhatta, and Saiman Sigdel
+file: index.html
+css: mystyle.css
+Created: Ocotber 9, 2020
+
+-->
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="css/mystyle.css">
+<html>
+<body>
+    <!-- Include src.js file-->
+    <script src = "src.js" > </script>
+    
+    <!--Firebase stuff --> 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+    <!-- Header Bar -->
+    <div style="width:100%;height:75px;background-color:rgb(148, 28, 28);border:1px solid #000;">
+        <h1>      Welcome to Wafer!     
+                               
+            <!--This is for sliding information-->
+                <div class="slidingHorizontal">
+                    <span>Click on restaurant!</span>
+                    <span>See on map!</span>
+                    <span>Submit rating!</span>
+                    <span>By Beep Boop!</span>
+                </div>
+
+        </h1>
+    </div>
+
+<!--scrollbar-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <!-- Map id for google map api -->
+    <div id = "map" ></div> 
+   
+    <!-- Form for the user to input location they want to search-->
+    <div id="locationForm">
+    <form> 
+        <input type = "text" id = "location" placeholder="Enter location">
+    </form>
+    </div>
+
+    <!--Radius Input-->
+    <div class="resCard" style="text-align: center; margin-left: 1.5%; color: white;
+    font-size: 20px; font-family: 'Raleway', sans-serif; width: 30%; " id="radius_box">
+    
+    <form>
+       <label for="round" >Radius: </label>
+       <input type="number" id="area" name="radius_area" min =500 max=1000000 placeholder="In meters"><br><br>
+   
+       <button type="submit" id= "r_sub" form="nameform" value="Submit" >Submit</button>
+    
+     </form>
+
+   </div>
+
+
+
+    <div class="resCard" style="text-align: center; margin-left: 1.5%; color: white;
+                font-size: 20px; font-family: 'Raleway', sans-serif; width: 30%;" 
+
+         id="p" class="one">&nbsp;</div><!--displaying the clicked restaurant from the list-->
+
+
+    <form action="/matt_database.php" method="post" id="name">
+        <br>
+        <input type="text" id="username" name="username" placeholder="Name"><br><br>
+    
+        <input type="number" id="rate" name="rate" min="1" max="10" placeholder="Rating 1-10"><br><br>
+    
+        <textarea id="comment" name="text" rows="3" cols="30" placeholder="Comments"></textarea><br> <br>
+
+        <button id="back" type="submit" form="nameform" value="submit">Back</button>
+        <button id="but"  type="submit" form="nameform" value="Submit">Submit</button><!--but is a submit button id-->
+        
+        <ul id="reviewsList" class="one"></ul><!--For the list of reviews-->
+
+        <script src="/app.js"></script>
+    </form>
+
+    <!-- DO NOT DELETE <STYLE> DECLARATION. MAP WILL NOT WORK-->
+    <style>
+        #map {
+            height: 890px;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0; 
+        }
+    </style> 
+
+
+    <!-- JS Script that will refresh the map based on zipcode -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>        <!-- #include <jquery> -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDn0aMrVf2TyndUxmcC0aC8czGEY1d0R8&libraries=places&callback=createMap">
+    </script> 
+  
+               
+    
+    <ul id="items" class="one"></ul><!--For the list of restaurant-->
+    <br clear="all"/>    
+    <p id="demo"></p> 
+
+    <!--This is the script of get http request from googlemap javascript API,
+        manipulate data like events getting triggered when clicking the name of the restaurant,
+        also used for back button-->
+    <script defer src="./bundle.js"></script>
+
+</body>
+</html>
